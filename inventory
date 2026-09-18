@@ -1,0 +1,7 @@
+# Inventory of servers to be managed
+
+# Raspberry Pi
+192.168.1.150
+
+# Fedora Server
+192.168.1.65
