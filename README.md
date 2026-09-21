@@ -50,8 +50,10 @@ Project for Ansible Automation
 
 ### Useful commands
 
-| Command                                            | Purpose                                                          |
-| -------------------------------------------------- | ---------------------------------------------------------------- |
-| `ansible all --list-hosts`                         | Lists all of the IP addresses defined in the inventory           |
-| `ansible all -m gather_facts`                      | Runs the gather_facts module to pull info about the server, etc. |
-| `ansible all -m gather_facts --limit <ip address>` | Limits to a specific IP address                                  |
+| Command                                                                         | Purpose                                                                   |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `ansible all --list-hosts`                                                      | Lists all of the IP addresses defined in the inventory                    |
+| `ansible all -m gather_facts`                                                   | Runs the gather_facts module to pull info about the server, etc.          |
+| `ansible all -m gather_facts --limit <ip address>`                              | Limits to a specific IP address                                           |
+| `ansible all -m gather_facts --limit <ip address> \| grep ansible_distribution` | Get only the `ansible_distribution` info for a specific machine           |
+| `ansible-playbook --ask-become-pass run_updates.yml`                            | Runs a playbook named `install_apache.yml` and prompts to supply password |
