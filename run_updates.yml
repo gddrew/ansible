@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: update repository index and upgrade all packages
+      apt:
+        update_cache: true
+        upgrade: yes
+        autoclean: true
+      when: ansible_facts["distribution"] == "Debian"
+
+    - name: upgrade all packages
+      dnf:
+        name: '*'
+        state: latest
+      when: ansible_facts["distribution"] == "Fedora"
+
+    - name: clean up dnf cache
+      command: dnf clean all
+      when: ansible_facts["distribution"] == "Fedora"
+      changed_when: false
+...
